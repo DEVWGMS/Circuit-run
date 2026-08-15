@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<title>Circuit Run </title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrap">
+  <header>
+    <div>
+      <div class="name">Wallace Gabriel <span>Moreira Da Silva</span></div>
+      <div class="role">Sistemas de Informação · PUC Minas</div>
+    </div>
+  </header>
+ 
+  <div id="stage">
+    <div id="hud">
+      <div id="score">0000</div>
+      <div id="skills"></div>
+    </div>
+    <div id="banner"></div>
+    <canvas id="game"></canvas>
+ 
+    <div class="overlay" id="startScreen">
+      <h1>CIRCUIT RUN</h1>
+      <p>Um pequeno runner pela minha trajetória. Pule os bugs (espaço, ↑ ou toque), colete as skills e passe pelos checkpoints da carreira.</p>
+      <button class="cta" id="startBtn">▶ INICIAR</button>
+    </div>
+ 
+    <div class="overlay" id="overScreen" style="display:none;">
+      <h1>FIM DE EXECUÇÃO</h1>
+      <div class="stats">
+        <div><div class="n" id="finalScore">0</div><div class="l">PONTOS</div></div>
+        <div><div class="n" id="finalSkills">0/6</div><div class="l">SKILLS</div></div>
+      </div>
+      <p id="overText">Wallace Gabriel Moreira Da Silva — estudante de Sistemas de Informação na PUC Minas, com formação técnica em Sistemas de Energia Renovável pelo IFMG.</p>
+      <div class="links">
+        <a href="https://github.com/DEVWGMS" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/wallace-gabriel-moreira-da-silva-3482a9338" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <button class="cta" id="retryBtn">↻ TENTAR DE NOVO</button>
+    </div>
+  </div>
+ 
+  <footer>ESPAÇO / ↑ / TOQUE PARA PULAR · feito com ajuda de Claude IA</footer>
+</div>
+ 
+<script src="game.js"></script>
+</body>
+</html>
+ 

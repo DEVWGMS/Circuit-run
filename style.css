@@ -1,0 +1,186 @@
+:root{
+  --bg:#0a0e13;
+  --bg-grid:#141b24;
+  --panel:#101720;
+  --line:#1e2a37;
+  --cyan:#4ce0d2;
+  --amber:#f2b134;
+  --red:#ff5d5d;
+  --text:#e8edf2;
+  --text-dim:#7f8fa0;
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color: transparent;}
+html,body{margin:0; padding:0; background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; overflow:hidden; height:100%;}
+#wrap{
+  position:relative;
+  width:100%;
+  max-width:900px;
+  margin:0 auto;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+}
+header{
+  padding:14px 18px 8px;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  flex-shrink:0;
+}
+header .name{
+  font-family:'Space Mono', monospace;
+  font-size:15px;
+  letter-spacing:0.02em;
+  color:var(--text);
+}
+header .name span{color:var(--cyan);}
+header .role{
+  font-size:11px;
+  color:var(--text-dim);
+  font-family:'Space Mono', monospace;
+}
+#stage{
+  position:relative;
+  flex:1;
+  min-height:0;
+  margin:0 12px 12px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg, var(--bg) 0%, #0d1319 70%, #0a0e13 100%);
+}
+canvas{
+  display:block;
+  width:100%;
+  height:100%;
+}
+#hud{
+  position:absolute;
+  top:10px; left:10px; right:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  pointer-events:none;
+  font-family:'Space Mono', monospace;
+  z-index:5;
+}
+#score{
+  font-size:20px;
+  color:var(--amber);
+  text-shadow:0 0 12px rgba(242,177,52,0.5);
+}
+#skills{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  max-width:60%;
+}
+.skill-tag{
+  font-size:10px;
+  padding:3px 7px;
+  border-radius:4px;
+  border:1px solid var(--line);
+  color:var(--text-dim);
+  background:rgba(16,23,32,0.7);
+  transition:all .25s ease;
+}
+.skill-tag.got{
+  color:#0a0e13;
+  background:var(--cyan);
+  border-color:var(--cyan);
+  box-shadow:0 0 10px rgba(76,224,210,0.6);
+}
+#banner{
+  position:absolute;
+  top:46%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(0.9);
+  background:rgba(10,14,19,0.92);
+  border:1px solid var(--cyan);
+  color:var(--text);
+  padding:10px 20px;
+  border-radius:8px;
+  font-family:'Space Mono', monospace;
+  font-size:13px;
+  text-align:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .3s ease, transform .3s ease;
+  z-index:6;
+  max-width:80%;
+}
+#banner.show{opacity:1; transform:translate(-50%,-50%) scale(1);}
+.overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:rgba(10,14,19,0.88);
+  z-index:10;
+  padding:24px;
+  gap:10px;
+}
+.overlay h1{
+  font-family:'Space Mono', monospace;
+  font-size:clamp(20px,4vw,30px);
+  margin:0;
+  color:var(--cyan);
+  text-shadow:0 0 16px rgba(76,224,210,0.4);
+}
+.overlay p{
+  margin:0;
+  color:var(--text-dim);
+  font-size:13px;
+  max-width:420px;
+  line-height:1.5;
+}
+.overlay .cta{
+  margin-top:14px;
+  font-family:'Space Mono', monospace;
+  font-size:12px;
+  padding:10px 22px;
+  border-radius:6px;
+  border:1px solid var(--amber);
+  color:var(--amber);
+  background:transparent;
+  cursor:pointer;
+  letter-spacing:0.03em;
+}
+.overlay .cta:active{background:rgba(242,177,52,0.15);}
+.overlay .links{
+  display:flex;
+  gap:16px;
+  margin-top:4px;
+}
+.overlay .links a{
+  font-family:'Space Mono', monospace;
+  font-size:12px;
+  color:var(--cyan);
+  text-decoration:none;
+  border-bottom:1px solid rgba(76,224,210,0.4);
+  padding-bottom:1px;
+}
+.overlay .links a:hover{ color:var(--amber); border-color:var(--amber); }
+.overlay .stats{
+  display:flex;
+  gap:22px;
+  margin-top:6px;
+  font-family:'Space Mono', monospace;
+}
+.overlay .stats div{text-align:center;}
+.overlay .stats .n{font-size:22px; color:var(--amber);}
+.overlay .stats .l{font-size:9px; color:var(--text-dim); letter-spacing:.06em;}
+footer{
+  text-align:center;
+  font-size:10px;
+  color:var(--text-dim);
+  padding:6px 0 10px;
+  font-family:'Space Mono', monospace;
+  flex-shrink:0;
+}
